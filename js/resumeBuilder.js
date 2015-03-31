@@ -222,36 +222,39 @@ var projects = {
 	]
 };
 
-var mobile = HTMLmobile.replace("%data%", bio.contacts.mobile);
-$("#topContacts").append(mobile);
-var email = HTMLemail.replace("%data%", bio.contacts.email);
-$("#topContacts").append(email);
-var twitter = HTMLtwitter.replace("%data%", bio.contacts.twitter);
-$("#topContacts").append(twitter);
-var github = HTMLgithub.replace("%data%", bio.contacts.github);
-$("#topContacts").append(github);
-var mylocation = HTMLlocation.replace("%data%", bio.contacts.location);
-$("#topContacts").append(mylocation);
 
-var headerName = HTMLheaderName.replace("%data%", bio.name);
-var headerRole = HTMLheaderRole.replace("%data%", bio.role);
-$("#header").prepend(headerRole);
-$("#header").prepend(headerName);
+bio.display = function() {
+	var mobile = HTMLmobile.replace("%data%", bio.contacts.mobile);
+	$("#topContacts").append(mobile);
+	var email = HTMLemail.replace("%data%", bio.contacts.email);
+	$("#topContacts").append(email);
+	var twitter = HTMLtwitter.replace("%data%", bio.contacts.twitter);
+	$("#topContacts").append(twitter);
+	var github = HTMLgithub.replace("%data%", bio.contacts.github);
+	$("#topContacts").append(github);
+	var mylocation = HTMLlocation.replace("%data%", bio.contacts.location);
+	$("#topContacts").append(mylocation);
 
-var picture_URL = HTMLbioPic.replace("%data%", bio.bioPic);
-$("#header").append(picture_URL);
+	var headerName = HTMLheaderName.replace("%data%", bio.name);
+	var headerRole = HTMLheaderRole.replace("%data%", bio.role);
+	$("#header").prepend(headerRole);
+	$("#header").prepend(headerName);
 
-var welcome_message = HTMLWelcomeMsg.replace("%data%", bio.welcomeMessage);
-$("#header").append(welcome_message);
+	var picture_URL = HTMLbioPic.replace("%data%", bio.bioPic);
+	$("#header").append(picture_URL);
 
-if( bio.skills.length > 0 ) {
-	$("#header").append(HTMLskillsStart);
-	for( skill in bio.skills ) {
-		var formattedSkills = HTMLskills.replace("%data%", bio.skills[skill]);
-		$("#skills").append(formattedSkills);
+	var welcome_message = HTMLWelcomeMsg.replace("%data%", bio.welcomeMessage);
+	$("#header").append(welcome_message);
+
+	if( bio.skills.length > 0 ) {
+		$("#header").append(HTMLskillsStart);
+		for( skill in bio.skills ) {
+			var formattedSkills = HTMLskills.replace("%data%", bio.skills[skill]);
+			$("#skills").append(formattedSkills);
+		}
 	}
 }
-
+bio.display();
 
 work.display = function() {
 	if( work.jobs.length > 0 ) {
