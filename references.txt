@@ -1,0 +1,3 @@
+w3schools.com
+Introduction to JavaScript
+https://github.com/zhu7charlie/frontend-nanodegree-resume.git
